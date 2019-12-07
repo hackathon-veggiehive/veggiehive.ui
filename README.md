@@ -1,6 +1,10 @@
-# VeggieHive
+# Veggiehive UI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+
+### UI modules provide following functionalites :
+* Enable user to book slots.
+* Enable user to analyse the status booked slot.
 
 ## Development server
 
