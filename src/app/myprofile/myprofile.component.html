@@ -3,23 +3,25 @@
     My Account</h2><br>
 <div class="container">
     <div class="row">
-        <div class="col-md-9 ml-auto mr-auto">
-            <div class="card card-block " style="border: 3px solid rgba(0, 0, 0, 0.253);">
-                <h4 class="card-title text-right"><i class="material-icons">account_circle</i></h4>
-                <div id="icon" class="card-avatar">
-                    <i class="material-icons" style="font-size: 100px;">account_circle</i>
+        <div class="card ">
+            <div class="col-md-9 ml-auto mr-auto">
+                <div class="card card-block " style="border: 3px solid rgba(0, 0, 0, 0.253);">
+                    <h4 class="card-title text-right"><i class="material-icons">account_circle</i></h4>
+                    <div id="icon" class="card-avatar">
+                        <i class="material-icons" style="font-size: 100px;">account_circle</i>
+                    </div>
+                    <div id="text" class=card-body>
+                        <h6 class="card-category text-gray"><b>Full Name:</b> {{userName}}</h6>
+                        <h6 class="card-title"><b>Email  :</b> {{userId}}
+                        </h6>
+                        <h6 class="card-description">
+                            <b>Slots Booked &nbsp; : </b>{{slotId}}
+                        </h6>
+                        <h6 *ngIf="slotId">Click on Dashboard to view / analyse Reports</h6>
+                    </div>
                 </div>
-                <div id="text" class=card-body>
-                    <h6 class="card-category text-gray"><b>Full Name:</b> {{userName}}</h6>
-                    <h6 class="card-title"><b>Email  :</b> {{userId}}
-                    </h6>
-                    <h6 class="card-description">
-                        <b>Slots Booked &nbsp; : </b>{{slotId}}
-                    </h6>
-                    <h6 *ngIf="slotId">Click on Dashboard to view / analyse Reports</h6>
-                </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </div>

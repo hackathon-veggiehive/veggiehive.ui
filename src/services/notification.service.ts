@@ -32,6 +32,11 @@ export class NotificationService {
   showSlotSuccessToaster(slotId: any) {
     this.toaster.success("Slot with ID " + slotId + " Booked Successfully")
   }
+
+  //Logout
+  showLogoutToaster(){
+  this.toaster.info("logged out!!")
+  }
 }
 
 

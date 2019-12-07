@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+  import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -112,6 +112,11 @@ export class VeggieHiveService {
    */
   retrieveImage(slotId:any){
     const header = this.returnHeader();
-    return this.httpClient.get(this.baseUrl+`/image/report/slots/${slotId}` , header)
+    return this.httpClient.get(this.baseUrl + `/image/report/slots/${slotId}` , header)
+  }
+
+  retriveImageAnalysedData(slotId:any){
+  const header = this.returnHeader();
+  return this.httpClient.get(this.baseUrl + `/image/analysis/report/slots/${slotId}` , header)
   }
 }

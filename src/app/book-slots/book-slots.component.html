@@ -2,54 +2,53 @@
     <u>Available Slots</u></h2><br>
 <div class="container mt-2">
     <div class="row">
-        <div class="col-md-12">
-            <div *ngFor="let slot of slotsAvailable">
-                <div *ngIf="!slot.owner">
-                    <div class="card card-block col-md-3">
-                        <h4 class="card-title text-right"><i class="material-icons">lock_open</i></h4>
-                        <img src="../../assets/fruits-vegetable-coldroom.png" alt="Photo of sunset">
-                        <h5 class="card-title mt-3 mb-3"><b>Site ID:</b> {{slot.id}}</h5>
-                        <p class="card-text"><b>Dimension : </b> {{slot.dimension.length}}*{{slot.dimension.width}}sqft</p>
-                        <p class="card-text"><b>Site Name:</b> {{slot.siteName}}</p>
-                        <p class="card-text"><b>Location : </b>{{slot.location}}</p>
-                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">Book
+        <!-- <div class="col-md-12"> -->
+        <div *ngFor="let slot of slotsAvailable">
+            <div *ngIf="!slot.owner">
+                <div class="card col-md-9 ml-auto mr-auto" style="height: 100rem;">
+                    <h4 class="card-title text-right"><i class="material-icons">lock_open</i></h4>
+                    <img src="../../assets/fruits-vegetable-coldroom.png" alt="Photo of sunset">
+                    <h5 class="card-title mt-3 mb-3"><b>Site ID:</b> {{slot.id}}</h5>
+                    <p class="card-text"><b>Dimension : </b> {{slot.dimension.length}}*{{slot.dimension.width}}sqft</p>
+                    <p class="card-text"><b>Site Name:</b> {{slot.siteName}}</p>
+                    <p class="card-text"><b>Location : </b>{{slot.location}}</p>
+                    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">Book
                     Slot</button>
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title text-dark" id="exampleModalCenterTitle">Please Confirm</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h4 class="text-center text-info">Are you sure? You want to book this slot?</h4>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-success" (click)="bookSlot(slot)" data-dismiss="modal">Confirm</button>
-                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            <div *ngIf="slot.owner">
+                <div class=" card col-md-9 ml-auto mr-auto" matTooltip="This Slot is Booked!! " style="background-color: rgb(194, 187, 187); ">
+                    <h4 class="card-title text-right "><i class="material-icons ">lock_open</i></h4>
+                    <img src="../../assets/fruits-vegetable-coldroom.png " alt="Photo of sunset ">
+                    <h5 class="card-title mt-3 mb-3 "><b>Site ID:</b> {{slot.id}}</h5>
+                    <p class="card-text "><b>Dimension : </b> {{slot.dimension.length}}*{{slot.dimension.width}}sqft</p>
+                    <p class="card-text "><b>Site Name:</b> {{slot.siteName}}</p>
+                    <p class="card-text "><b>Location : </b>{{slot.location}}</p>
+                    <button type="button " disabled class="btn btn-outline-success ">Book Slot</button>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-dark" id="exampleModalCenterTitle">Please Confirm</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="text-center text-info">Are you sure? You want to book this slot?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-success" (click)="bookSlot(slot)" data-dismiss="modal">Confirm</button>
+                            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
 
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div *ngIf="slot.owner">
-                    <div class=" card card-block col-md-3" matTooltip="This Slot is Booked!! " style="background-color: rgb(194, 187, 187); ">
-                        <h4 class="card-title text-right "><i class="material-icons ">lock_open</i></h4>
-                        <img src="../../assets/fruits-vegetable-coldroom.png " alt="Photo of sunset ">
-                        <h5 class="card-title mt-3 mb-3 "><b>Site ID:</b> {{slot.id}}</h5>
-                        <p class="card-text "><b>Dimension : </b> {{slot.dimension.length}}*{{slot.dimension.width}}sqft</p>
-                        <p class="card-text "><b>Site Name:</b> {{slot.siteName}}</p>
-                        <p class="card-text "><b>Location : </b>{{slot.location}}</p>
-                        <button type="button " disabled class="btn btn-outline-success ">Book
-                        Slot</button>
-                    </div>
-                </div>
             </div>
-
         </div>
+
+        <!-- </div> -->
     </div>
 </div>

@@ -13,13 +13,22 @@ export class ReportsComponent implements OnInit {
   panelOpenState = false;
   private environmentData: any;
   private humidityData: any;
+  imagUrl: any;
+  url: any;
+  analysedData: any;
 
   constructor(private veggieHiveService: VeggieHiveService) { }
 
   ngOnInit() {
     let slotId = localStorage.getItem('slotId')
-    this.veggieHiveService.retrieveImage(slotId).subscribe(data=>{
-      console.log(data)
+    this.veggieHiveService.retrieveImage(slotId).subscribe(data => {
+      this.imagUrl = data;
+      this.url = this.imagUrl.imageUrl;
+    })
+
+    this.veggieHiveService.retriveImageAnalysedData(slotId).subscribe(imageData => {
+      this.analysedData = imageData;
+      console.log(this.analysedData)
     })
   }
 
@@ -27,16 +36,16 @@ export class ReportsComponent implements OnInit {
   temperture = this.veggieHiveService.getTemperatureData();
   lineChartData: ChartDataSets[] = [
 
-    { data: [0,this.humidity.environmentData.humidity.value], label: 'Series A' },
+    { data: [60, 68.5, 57, 72, 80, 66, 53], label: 'Humidity' },
   ];
-  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  lineChartLabels: Label[] = ["02-12-19", "03-12-19", "04-12-19", "05-12-19", "06-12-19", "07-12-19", "08-12-19"];
   lineChartOptions: (ChartOptions) = {
     responsive: true,
   };
   lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      // backgroundColor: 'rgba(255,0,0,0.3)',
+      backgroundColor: 'rgba(255,0,0,0.3)',
     },
   ];
   lineChartLegend = true;
@@ -45,9 +54,9 @@ export class ReportsComponent implements OnInit {
 
   lineChartTempData: ChartDataSets[] = [
 
-    { data: [0,this.temperture.environmentData.temperature.value], label: 'Series A' },
+    { data: [15, 17, 16, 19, 21, 17, 20], label: 'Temperature' },
   ];
-  lineChartTempLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  lineChartTempLabels: Label[] = ["02-12-19", "03-12-19", "04-12-19", "05-12-19", "06-12-19", "07-12-19", "08-12-19"];
   lineChartTempOptions: (ChartOptions) = {
     responsive: true,
   };
@@ -74,22 +83,5 @@ export class ReportsComponent implements OnInit {
     { data: [this.humidity.environmentData.humidity.value], label: 'Humidity' },
     { data: [this.temperture.environmentData.temperature.value], label: 'Temperature' }
   ];
-
-  // constructor() {}
-
-  // public initViz(): void {
-  //   const containerDiv = document.getElementById('vizContainer');
-  //   const vizUrl = 'https://public.tableau.com/views/WorldIndicators/GDPpercapita';
-  //   const options = {
-  //     width: containerDiv.offsetWidth,
-  //     height: 700
-  //   };
-
-  //   const viz = new Tableau.Viz(containerDiv, vizUrl, options);
-  // }
-
-  // public ngOnInit(): void {
-  //   this.initViz();
-  // }
 
 }
