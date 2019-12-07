@@ -50,3 +50,12 @@ body {
     color: white;
     transform: rotateY(180deg);
 }
+
+.example-card{
+    margin-top: 50px;
+}
+
+.example-header-image {
+    background-image: url('../../assets/veggie_hive_orignal.png');
+    background-size: cover;
+  }

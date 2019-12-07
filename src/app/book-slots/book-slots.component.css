@@ -74,3 +74,7 @@ div [class^="col-"] {
 .card:focus::after {
     transform: scale3d(1, 1, 1);
 }
+
+.btn-slot{
+    margin: 10px;
+}
