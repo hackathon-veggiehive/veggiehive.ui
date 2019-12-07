@@ -16,6 +16,7 @@ export class ReportsComponent implements OnInit {
   imagUrl: any;
   url: any;
   analysedData: any;
+  selected = 'option2';
 
   constructor(private veggieHiveService: VeggieHiveService) { }
 
