@@ -81,8 +81,18 @@ h4 {
     transition: box-shadow 0.5s;
 }
 
+#about {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+}
+
 .panel:hover {
     box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+}
+
+.homeBody {
+    background-image: url(../../assets/mediterranean-cuisine-2378758__340.webp);
+    /* For IE8 and earlier */
 }
 
 .panel-footer .btn:hover {

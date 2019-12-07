@@ -22,17 +22,9 @@ export class BookSlotsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.slots = [{ 'slotId': 1, 'SlotName': 'Slot 1', 'dimension': '100Ft', 'location': 'Bangalore' },
-    // { 'slotId': 2, 'SlotName': 'Slot 2', 'dimension': '200Ft', 'location': 'Mumbai' },
-    // { 'slotId': 3, 'SlotName': 'Slot 3', 'dimension': '100Ft', 'location': 'Chennai' }];
-
     //To retrive all available slots
     this.veggieHiveService.getAllSlotsAvailable().subscribe(data => {
       this.slotsAvailable = data;
-      // for(let i=0; i < this.slotsAvailable.length; i++){
-      //  this.ownerInfo=this.slotsAvailable[i].owner;
-      // }
-      
     }, error => console.log(error));
   }
 
@@ -48,7 +40,6 @@ export class BookSlotsComponent implements OnInit {
     localStorage.setItem('slotId',slotData.id)
     ownerInfo.ownerName = userName;
     ownerInfo.email = userId;
-    console.log(ownerInfo);
     return ownerInfo;
   }
 
@@ -58,7 +49,6 @@ export class BookSlotsComponent implements OnInit {
  */
   bookSlot(slotData) {
     this.veggieHiveService.bookSlot(this.retriveOwnerInfo(slotData), slotData.id).subscribe(slot => {
-      console.log(slot);
       this.notificationService.showSlotSuccessToaster(slotData.id);
     }, error => console.log(error));
 
