@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class VeggieHiveService {
   environmentData:any;
+  analysedData : any;
   baseUrl = 'http://ec2-52-77-243-25.ap-southeast-1.compute.amazonaws.com:8080/nec'
 
   constructor(private httpClient: HttpClient) { }
@@ -16,6 +17,14 @@ export class VeggieHiveService {
       this.environmentData= data;
     });
     return this.environmentData;
+  }
+
+  getAnalysedData():any{
+    let slotId = localStorage.getItem('slotId')
+    this.retriveImageAnalysedData(slotId).subscribe(data=>{
+      this.analysedData= data;
+    });
+    return this.analysedData;
   }
 
   getTemperatureData():any{

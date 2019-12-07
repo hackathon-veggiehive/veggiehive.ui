@@ -66,9 +66,10 @@ div [class^="col-"] {
     /* font-style: oblique; */
 }
 
-.card {
+
+/* .card {
     background-image: url(../../assets/back.jpg);
-}
+} */
 
 .card::before,
 .card::after {

@@ -26,14 +26,36 @@ export class ReportsComponent implements OnInit {
       this.url = this.imagUrl.imageUrl;
     })
 
-    this.veggieHiveService.retriveImageAnalysedData(slotId).subscribe(imageData => {
-      this.analysedData = imageData;
-      console.log(this.analysedData)
-    })
+    // this.veggieHiveService.retriveImageAnalysedData(slotId).subscribe(imageData => {
+    //   this.analysedData = imageData;
+    //   console.log(this.analysedData)
+    // })
   }
 
+  imageData = this.veggieHiveService.getAnalysedData();
   humidity = this.veggieHiveService.getHumdityData();
   temperture = this.veggieHiveService.getTemperatureData();
+
+  lineChartAnalysedData: ChartDataSets[] = [
+
+    { data: [this.imageData[0].red,this.imageData[1].red,this.imageData[2].red,this.imageData[3].red], label: 'Red' },
+    { data: [this.imageData[0].green,this.imageData[1].green,this.imageData[2].green,this.imageData[3].green], label: 'Green' },
+    { data: [this.imageData[0].blue,this.imageData[1].blue,this.imageData[2].blue,this.imageData[3].blue], label: 'Blue' }
+  ];
+  lineChartAnalysedLabels: Label[] = [this.imageData[0].creationTimestamp,this.imageData[1].creationTimestamp,this.imageData[3].creationTimestamp,this.imageData[3].creationTimestamp];
+  lineChartAnalysedOptions: (ChartOptions) = {
+    responsive: true,
+  };
+  lineChartAnalysedColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(255,0,0,0.3)',
+    },
+  ];
+  lineChartAnalysedLegend = true;
+  lineChartAnalysedType = 'line';
+  lineChartAnalysedPlugins = [];
+
   lineChartData: ChartDataSets[] = [
 
     { data: [60, 68.5, 57, 72, 80, 66, 53], label: 'Humidity' },
@@ -82,6 +104,20 @@ export class ReportsComponent implements OnInit {
   public barChartData: ChartDataSets[] = [
     { data: [this.humidity.environmentData.humidity.value], label: 'Humidity' },
     { data: [this.temperture.environmentData.temperature.value], label: 'Temperature' }
+  ];
+
+  barChartAnalysedOptions: ChartOptions = {
+    responsive: true,
+  };
+  public barChartAnalysedLabels: Label[] = [this.imageData[0].creationTimestamp,this.imageData[1].creationTimestamp,this.imageData[3].creationTimestamp,this.imageData[3].creationTimestamp];
+  public barChartAnalysedType: ChartType = 'bar';
+  public barChartAnalysedLegend = true;
+  public barChartAnalysedPlugins = [];
+
+  public barChartAnalysedData: ChartDataSets[] = [
+    { data: [this.imageData[0].red,this.imageData[1].red,this.imageData[2].red,this.imageData[3].red], label: 'Red' },
+    { data: [this.imageData[0].blue,this.imageData[1].blue,this.imageData[2].blue,this.imageData[3].blue], label: 'Blue' },
+    { data: [this.imageData[0].green,this.imageData[1].green,this.imageData[2].green,this.imageData[3].green], label: 'Green' },
   ];
 
 }

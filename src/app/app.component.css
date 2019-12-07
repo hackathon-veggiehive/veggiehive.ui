@@ -3,7 +3,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(80, 163, 190);
+    background-color: darkslateblue;
     /* 4d36b4 */
     text-align: center;
 }
@@ -13,7 +13,7 @@
     top: 0;
     width: 100%;
     z-index: 1;
-    background-color: rgb(80, 163, 190);
+    background-color: darkslateblue;
     /* background-color: #6d7fcc; */
     font-family: 'Times New Roman', Times, serif;
 }
