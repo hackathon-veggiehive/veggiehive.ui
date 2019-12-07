@@ -1,0 +1,65 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" class=col-md-3>
+        <div class="sidebar-header">
+            <h3>VEGGIE HIVE</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a class="nav-link" routerLink="/home">
+                    <h6 class="navLink">About<i class="fa fa-home" style="font-size:24px"></i></h6>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" routerLink="/home">
+                    <h6 class="navLink">About<i class="fa fa-home" style="font-size:24px"></i></h6>
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid"> -->
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="material-icons">view_list</i>
+                    <span></span>
+                </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+        <!-- </div>
+        </nav> -->
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').toggleClass('active');
+        });
+    })(jQuery);
+</script>

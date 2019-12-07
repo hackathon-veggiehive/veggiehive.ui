@@ -16,9 +16,17 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AuthGaurdService } from 'src/services/guards/auth-guard.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
-import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule,MatButtonModule, MatCheckboxModule, MatSelectModule,MatCardModule } from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MatTooltipModule, MatToolbarModule, MatSidenavModule, MatBadgeModule, MatListModule, MatGridListModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatTableModule, MatChipsModule, MatPaginatorModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatCheckboxModule, MatSelectModule, MatCardModule, MatIconModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { CommonModule } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToastrModule } from 'ngx-toastr';
+import { MyprofileComponent } from './myprofile/myprofile.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { SidenavComponent } from './sidenav/sidenav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,16 +38,60 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoginComponent,
     ContactUsComponent,
     LogoutComponent,
+    MyprofileComponent,
+    SidenavComponent,
   ],
   imports: [
-    BrowserModule,BrowserAnimationsModule, MatFormFieldModule,MatInputModule,MatCardModule, MatButtonModule, MatCheckboxModule,MatSelectModule, ChartsModule,ShowHidePasswordModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule.forRoot([
-      { path: "booking", component: BookSlotsComponent,canActivate:[AuthGaurdService] },
-      { path: "reports", component: ReportsComponent, canActivate:[AuthGaurdService] },
+    CommonModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatListModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatChipsModule,
+    MatTooltipModule,
+    MatTableModule,
+    MatPaginatorModule,
+    BrowserModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    ChartsModule,
+    ShowHidePasswordModule,
+    FormsModule,
+    ReactiveFormsModule, 
+    FlexLayoutModule ,
+    HttpClientModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    ToastrModule.forRoot(), 
+    RouterModule.forRoot([
+      { path: "booking", component: BookSlotsComponent, canActivate: [AuthGaurdService] },
+      { path: "reports", component: ReportsComponent, canActivate: [AuthGaurdService] },
       { path: "register", component: SlotRegistrationFormComponent },
-      { path: "login", component: LoginComponent},
-      { path: "logout", component: LogoutComponent},
+      { path: "login", component: LoginComponent },
+      { path: "logout", component: LogoutComponent },
       { path: "home", component: HomePageComponent },
-      { path: "contact", component: ContactUsComponent }])
+      { path: "contact", component: ContactUsComponent },
+      { path: "myprofile", component: MyprofileComponent }])
   ],
   providers: [],
   bootstrap: [AppComponent]

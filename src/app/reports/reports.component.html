@@ -1,0 +1,71 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                View Current Temperature &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px" style="color: teal;"></i>
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Type your name and age
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+
+        <div id="temperature" class="col-md-4">
+            <div id="lineChart" style="display: block;">
+                <canvas baseChart width="10" height="10" [datasets]="lineChartTempData" [labels]="lineChartTempLabels" [options]="lineChartTempOptions" [colors]="lineChartTempColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+        </canvas>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <!-- <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>I'm visible because I am open</p>
+    </mat-expansion-panel> -->
+</mat-accordion>
+<mat-accordion class="panel">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                View Current Humidity &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px" style="color: teal;"></i>
+            </mat-panel-title>
+            <!-- <mat-panel-description>
+                Type your name and age
+            </mat-panel-description> -->
+        </mat-expansion-panel-header>
+
+        <div id="humidity" class="col-md-4">
+            <div id="lineChart" style="display: block;">
+                <canvas baseChart width="10" height="10" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+        </canvas>
+            </div>
+        </div>
+    </mat-expansion-panel>
+    <mat-accordion class="panel">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    View Current Temperature and Humidity &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px" style="color: teal;"></i>
+                </mat-panel-title>
+                <!-- <mat-panel-description>
+                    Type your name and age
+                </mat-panel-description> -->
+            </mat-expansion-panel-header>
+
+            <div class="card" style="width: 65rem;">
+                <p style="text-align: center;"><b> Temperature in degree celcius </b></p>
+                <p style="text-align: center;"><b> Humidity in grams per cubic meter</b></p>
+                <div class="card-body">
+                    <div id="barChart" style="display: block;">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>

@@ -3,8 +3,8 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #1cc142;
-    color: white;
+    background-color: rgb(80, 163, 190);
+    /* 4d36b4 */
     text-align: center;
 }
 
@@ -13,6 +13,15 @@
     top: 0;
     width: 100%;
     z-index: 1;
-    background-color: #1cc142;
+    background-color: rgb(80, 163, 190);
+    /* background-color: #6d7fcc; */
     font-family: 'Times New Roman', Times, serif;
+}
+
+.sidenav {
+    position: absolute;
+}
+
+.router {
+    position: absolute;
 }

@@ -1,0 +1,26 @@
+p {
+    font-family: Lato;
+}
+
+#lineChart {
+    width: 459px;
+    height: 495px;
+}
+
+#barChart {
+    width: 700px;
+    height: 700px;
+}
+
+.humidity {
+    position: absolute;
+}
+
+.temperature {
+    position: absolute;
+    margin-top: 0px;
+}
+
+.panel :hover {
+    transform: scale(1.00);
+}
