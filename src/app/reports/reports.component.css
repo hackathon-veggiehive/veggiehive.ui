@@ -24,3 +24,12 @@ p {
 .panel :hover {
     transform: scale(1.00);
 }
+
+.row{
+    margin-bottom: 10px;
+    margin-top:10px ;
+}   
+
+.live{
+    width: 550px;
+}

@@ -23,6 +23,11 @@ export class AuthenticationService {
     return !(user === null)
   }
 
+  booked(){
+    let booked = localStorage.getItem('slotId')
+    return !(booked === null)
+  }
+
   logOut() {
     localStorage.clear();
   }

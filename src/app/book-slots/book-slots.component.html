@@ -4,8 +4,7 @@
         <!-- <div class="col-md-12"> -->
         <div *ngFor="let slot of slotsAvailable">
             <div *ngIf="!slot.owner">
-                <div class="card col-md-9 ml-auto mr-auto">
-                    <h4 class="card-title text-right"><i class="material-icons">lock_open</i></h4>
+                <div class="card col-md-9 ml-auto mr-auto slot-card">
                     <img src="../../assets/fruits-vegetable-coldroom.png" alt="Photo of sunset">
                     <h5 class="card-title mt-3 mb-3"><b>Site ID:</b> {{slot.id}}</h5>
                     <p class="card-text"><b>Dimension : </b> {{slot.dimension.length}}*{{slot.dimension.width}}sqft</p>
@@ -36,8 +35,7 @@
             </div>
 
             <div *ngIf="slot.owner">
-                <div class=" card col-md-9 ml-auto mr-auto" matTooltip="This Slot is Booked!! " style="background-color: rgb(194, 187, 187); ">
-                    <h4 class="card-title text-right "><i class="material-icons ">lock_open</i></h4>
+                <div class=" card col-md-9 ml-auto mr-auto slot-card" matTooltip="This Slot is Booked!! " style="background-color: rgb(194, 187, 187); ">
                     <img src="../../assets/fruits-vegetable-coldroom.png " alt="Photo of sunset ">
                     <h5 class="card-title mt-3 mb-3 "><b>Site ID:</b> {{slot.id}}</h5>
                     <p class="card-text "><b>Dimension : </b> {{slot.dimension.length}}*{{slot.dimension.width}}sqft</p>

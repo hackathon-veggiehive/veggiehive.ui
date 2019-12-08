@@ -18,24 +18,28 @@ export class ReportsComponent implements OnInit {
   analysedData: any;
   selected = 'option2';
 
+  
   constructor(private veggieHiveService: VeggieHiveService) { }
 
   ngOnInit() {
+
     let slotId = localStorage.getItem('slotId')
     this.veggieHiveService.retrieveImage(slotId).subscribe(data => {
       this.imagUrl = data;
       this.url = this.imagUrl.imageUrl;
     })
-
     // this.veggieHiveService.retriveImageAnalysedData(slotId).subscribe(imageData => {
     //   this.analysedData = imageData;
     //   console.log(this.analysedData)
     // })
   }
-
-  imageData = this.veggieHiveService.getAnalysedData();
+imageData = this.veggieHiveService.getAnalysedData();
   humidity = this.veggieHiveService.getHumdityData();
   temperture = this.veggieHiveService.getTemperatureData();
+
+  ttemperature = this.temperture.environmentData.temperature.value;
+  hhumidity = this.temperture.environmentData.humidity.value;
+
 
   lineChartAnalysedData: ChartDataSets[] = [
 
@@ -121,4 +125,6 @@ export class ReportsComponent implements OnInit {
     { data: [this.imageData[0].green,this.imageData[1].green,this.imageData[2].green,this.imageData[3].green], label: 'Green' },
   ];
 
+
+  
 }

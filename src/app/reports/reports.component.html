@@ -1,3 +1,124 @@
+<div class="container">
+        <div class="row">
+                <div class="col-md-8 ml-auto mr-auto ">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>Live</mat-card-title>
+                        </mat-card-header>
+        
+                        <mat-card-content>
+        
+                            <div style="bottom: 10px;">
+                                <img class="live" src={{url}}>
+                            </div>
+        
+                        </mat-card-content>
+        
+                    </mat-card>
+                </div>
+                <div class="col-md-4 ml-auto mr-auto " style="width: 36rem">
+                    <div class="row" style="width: inherit">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>Temperature</mat-card-title>
+                            </mat-card-header>
+        
+                            <mat-card-content>
+                                <h1>{{ttemperature}}</h1>
+                            </mat-card-content>
+        
+                        </mat-card>
+                    </div>
+                    <div class="row">
+        
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>Humidity</mat-card-title>
+                            </mat-card-header>
+        
+                            <mat-card-content>
+                                <h1>{{hhumidity}}</h1>
+                            </mat-card-content>
+        
+                        </mat-card>
+                    </div>
+        
+                </div>
+            </div>
+
+    <div class="row">
+        <div class="col-md-6 ml-auto mr-auto ">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>Temperature History</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div id="temperature">
+                        <p style="text-align: center;"><b> X axis: Data-Time </b></p>
+                        <p style="text-align: center;"><b> Y axis: Temperature in degree celcius</b></p>
+                        <div id="lineChart" style="display: block;">
+                            <canvas baseChart width="10" height="10" [datasets]="lineChartTempData"
+                                [labels]="lineChartTempLabels" [options]="lineChartTempOptions"
+                                [colors]="lineChartTempColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+                                [plugins]="lineChartPlugins">
+                            </canvas>
+                        </div>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+        <div class="col-md-6 ml-auto mr-auto ">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>Humidity History</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+
+                    <div id="humidity">
+                        <p style="text-align: center;"><b> X axis: Data-Time </b></p>
+                        <p style="text-align: center;"><b> Y axis: Humidity in grams per cubic meter</b></p>
+                        <div id="lineChart" style="display: block;">
+                            <canvas baseChart width="10" height="10" [datasets]="lineChartData"
+                                [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors"
+                                [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                            </canvas>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-12 ml-auto mr-auto ">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>Analysis</mat-card-title>
+                    </mat-card-header>
+    
+                    <mat-card-content>
+                            <p style="text-align: center;"><b> X axis: Data-Time </b></p>
+                            <p style="text-align: center;"><b> Y axis: Ripening level</b></p>
+                            <div id="barChart" style="display: block;">
+                                    <canvas baseChart [datasets]="barChartAnalysedData" [labels]="barChartAnalysedLabels"
+                                        [options]="barChartAnalysedOptions" [plugins]="barChartAnalysedPlugins"
+                                        [legend]="barChartAnalysedLegend" [chartType]="barChartAnalysedType">
+                                    </canvas>
+                                </div>
+                    </mat-card-content>
+    
+                </mat-card>
+            </div>
+        </div>
+       
+</div>
+
+<!--
 <mat-accordion>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -7,11 +128,13 @@
         </mat-expansion-panel-header>
 
         <div id="temperature" class="col-md-12">
-            <p style="text-align: center;"><b> X axis: Data-Time  </b></p>
+            <p style="text-align: center;"><b> X axis: Data-Time </b></p>
             <p style="text-align: center;"><b> Y axis: Temperature in degree celcius</b></p>
             <div id="lineChart" style="display: block;">
-                <canvas baseChart width="10" height="10" [datasets]="lineChartTempData" [labels]="lineChartTempLabels" [options]="lineChartTempOptions" [colors]="lineChartTempColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
-        </canvas>
+                <canvas baseChart width="10" height="10" [datasets]="lineChartTempData" [labels]="lineChartTempLabels"
+                    [options]="lineChartTempOptions" [colors]="lineChartTempColors" [legend]="lineChartLegend"
+                    [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                </canvas>
             </div>
         </div>
     </mat-expansion-panel>
@@ -25,11 +148,13 @@
         </mat-expansion-panel-header>
 
         <div id="humidity" class="col-md-4">
-            <p style="text-align: center;"><b> X axis: Data-Time  </b></p>
+            <p style="text-align: center;"><b> X axis: Data-Time </b></p>
             <p style="text-align: center;"><b> Y axis: Humidity in grams per cubic meter</b></p>
             <div id="lineChart" style="display: block;">
-                <canvas baseChart width="10" height="10" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
-        </canvas>
+                <canvas baseChart width="10" height="10" [datasets]="lineChartData" [labels]="lineChartLabels"
+                    [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
+                    [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                </canvas>
             </div>
         </div>
     </mat-expansion-panel>
@@ -38,7 +163,8 @@
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
-                View Current Temperature and Humidity &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px" style="color: teal;"></i>
+                View Current Temperature and Humidity &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px"
+                    style="color: teal;"></i>
             </mat-panel-title>
         </mat-expansion-panel-header>
 
@@ -47,8 +173,9 @@
             <p style="text-align: center;"><b> Humidity in grams per cubic meter</b></p>
             <div class="card-body">
                 <div id="barChart" style="display: block;">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
-                        </canvas>
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                        [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -73,17 +200,21 @@
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
-                View Image Analysed Data &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px" style="color: teal;"></i>
+                View Image Analysed Data &nbsp; <i class="fa fa-bar-chart-o" style="font-size:34px"
+                    style="color: teal;"></i>
             </mat-panel-title>
         </mat-expansion-panel-header>
 
         <div class="card col-md-9 ml-auto mr-auto">
             <div class="card-body">
                 <div id="barChart" style="display: block;">
-                    <canvas baseChart [datasets]="barChartAnalysedData" [labels]="barChartAnalysedLabels" [options]="barChartAnalysedOptions" [plugins]="barChartAnalysedPlugins" [legend]="barChartAnalysedLegend" [chartType]="barChartAnalysedType">
-                            </canvas>
+                    <canvas baseChart [datasets]="barChartAnalysedData" [labels]="barChartAnalysedLabels"
+                        [options]="barChartAnalysedOptions" [plugins]="barChartAnalysedPlugins"
+                        [legend]="barChartAnalysedLegend" [chartType]="barChartAnalysedType">
+                    </canvas>
                 </div>
             </div>
         </div>
     </mat-expansion-panel>
 </mat-accordion>
+-->
